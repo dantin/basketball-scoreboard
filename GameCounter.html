@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="">
+
+    <!-- Bootstrap core CSS -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/demo2do.css" rel="stylesheet">
+    <link href="static/css/app.css" rel="stylesheet">
+    <link href="static/css/common.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="static/js/vendor/html5-shiv-3.6-respond-1.1.0.min.js"></script>
+    <![endif]-->
+
+    <title></title>
+</head>
+<body>
+
+<div class="header">
+    <div class="container text-center">
+        <h1>2014年篮球赛记分</h1>
+    </div>
+ </div>
+
+<div ng-app="gameApp" class="container main-content">
+
+    <!-- clockCtrl App Controller -->
+    <div ng-controller="clockCtrl" class="panel panel-default colorado-panel colorado-panel-layout">
+
+        <div class="panel-heading text-center">
+            <!--Angular Binding -->
+            <h1><b>剩余比赛时间</b></h1>
+            <h1><span ng-bind="remaning"></span></h1>
+
+        </div>
+
+        <div class="panel-body text-center">
+
+            <div id="home" class="col-xs-5 colorado-panel-layout-left no-horizontal-padding text-center">
+                <h2>主队</h2>
+                <h1 style="font-size: 80px;">00</h1>
+                <p>
+                    <a href="#" onclick="javascript:add(this, 1);" class="hover-no-text-decoration">+1</a>
+                    &nbsp;&nbsp;
+                    <a href="#" onclick="javascript:add(this, 2);" class="hover-no-text-decoration">+2</a>
+                    &nbsp;&nbsp;
+                    <a href="#" onclick="javascript:add(this, 3);" class="hover-no-text-decoration">+3</a>
+                    &nbsp;&nbsp;
+                    <a href="#" onclick="javascript:add(this, -1);" class="hover-no-text-decoration">-1</a>
+                </p>
+            </div>
+
+            <div class="col-xs-1 colorado-panel-layout-right no-horizontal-padding text-center">
+
+            </div>
+
+            <div id="visiting" class="col-xs-5 colorado-panel-layout-right no-horizontal-padding text-center">
+                <h2>客队</h2>
+                <h1 style="font-size: 80px;">00</h1>
+                <p>
+                    <a href="#" onclick="javascript:add(this, 1);" class="hover-no-text-decoration">+1</a>
+                    &nbsp;&nbsp;
+                    <a href="#" onclick="javascript:add(this, 2);" class="hover-no-text-decoration">+2</a>
+                    &nbsp;&nbsp;
+                    <a href="#" onclick="javascript:add(this, 3);" class="hover-no-text-decoration">+3</a>
+                    &nbsp;&nbsp;
+                    <a href="#" onclick="javascript:add(this, -1);" class="hover-no-text-decoration">-1</a>
+                </p>
+            </div>
+
+        </div>
+        <div class="footer">
+            <div class="form-group demo2do-form-group no-bottom-border text-align-center" style="padding-top: 20px;">
+                <button type="button" class="btn btn-success btn-shadow btn-shadow-success demo2do-btn" ng-click="stop()">暂&nbsp;停</button>
+                <button type="button" class="btn btn-default btn-shadow btn-shadow-default demo2do-btn" href="#" data-target="#init-dialog" data-toggle="modal">初始化</button>
+                <button type="button" class="btn btn-info btn-shadow btn-shadow-info demo2do-btn" ng-click="countdown();">开&nbsp;始</button>
+            </div>
+        </div>
+     </div>
+
+
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="init-dialog" tabindex="-1" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+    <div class="modal-dialog demo2do-modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header colorado-breadcrumb no-bottom-border clearfix">
+
+                <h2>
+                    <i class="glyphicon glyphicon-fire" title=""></i>
+                    <span>初始化</span>
+                </h2>
+
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <form id="initialize-form" class="form-horizontal" data-validate="true">
+
+                <input type="hidden" name="time" value="0">
+
+                <div class="modal-body">
+                    <div class="form-group demo2do-form-group">
+
+                        <label class="col-xs-3 control-label">比赛时间</label>
+                        <div class="col-xs-7">
+                            <input type="text" class="form-control" name="duration" placeholder="比赛时间（单位：分钟）" data-validate="required">
+                        </div>
+
+                    </div>
+
+                    <div class="form-group demo2do-form-group">
+
+                        <label class="col-xs-3 control-label">主队</label>
+                        <div class="col-xs-7">
+                            <input type="text" class="form-control" name="home" placeholder="主队名称" data-validate="required">
+                        </div>
+
+                    </div>
+
+                    <div class="form-group demo2do-form-group">
+
+                        <label class="col-xs-3 control-label">客队</label>
+                        <div class="col-xs-7">
+                            <input type="text" class="form-control" name="visiting" placeholder="客队名称" data-validate="required">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" onclick="javascript:initialize();" class="btn btn-primary" data-dismiss="modal">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+    <script src="static/js/angular.js"></script>
+    <script src="static/js/moment.min.js"></script>
+    <script src="static/js/vendor/jquery-1.11.0.min.js"></script>
+    <script src="static/js/vendor/bootstrap.min.js"></script>
+    <script src="static/js/bootstrap-modal-trigger.js"></script>
+    <script src="static/js/bootstrap.validate.trigger.js"></script>
+    <script src="static/js/bootstrap.validate.js"></script>
+    <script src="static/js/bootstrap.validate.en.js"></script>
+
+    <script language="JavaScript">
+
+        function initialize() {
+            $('#home').children('h2').text($('#initialize-form').find( "input[name=home]" ).val());
+            $('#visiting').children('h2').text($('#initialize-form').find( "input[name=visiting]" ).val());
+            var timeInMinute = $('#initialize-form').find( "input[name=duration]" ).val();
+            $('#initialize-form').find( "input[name=time]" ).val(timeInMinute * 60);
+        }
+
+        function add(link, number) {
+            var node = $(link).closest('div').children('h1');
+            var score = new Number(node.text());
+            score += number;
+            if(score < 0) {
+                node.text('00');
+            } else if(score < 10) {
+                node.text('0' + score);
+            } else {
+                node.text(score);
+            }
+        }
+
+        // set up angular js framework
+        var timeModule = angular.module("gameApp", []);
+
+        timeModule.controller("clockCtrl",['$scope','$timeout', function($scope,$timeout){
+
+            $scope.remaning = 'N/A';
+
+            var toMoment = function (timeSpan) {
+                var days = Math.floor(timeSpan / 86400000);
+                var diff = timeSpan - days * 86400000;
+                var hours = Math.floor(diff / 3600000);
+                diff = diff - hours * 3600000;
+                var minutes = Math.floor(diff / 60000);
+                diff = diff - minutes * 60000;
+                var secs = Math.floor(diff / 1000);
+
+                var now = moment();
+                now.set('hour', hours);
+                now.set('minute', minutes);
+                now.set('second', secs);
+                return now;
+            };
+
+            var stopped;
+
+            $scope.countdown = function() {
+                stopped = $timeout(function() {
+                    var duration = $('#initialize-form').find( "input[name=time]" ).val();
+                    $scope.remaning = toMoment(duration * 1000).format('HH:mm:ss');
+                    duration--;
+                    $('#initialize-form').find( "input[name=time]" ).val(duration);
+                    $scope.countdown();
+                }, 1000);
+            };
+
+            $scope.stop = function(){
+                $timeout.cancel(stopped);
+            }
+
+        }]);
+
+    </script>
+</body>
+</html>
