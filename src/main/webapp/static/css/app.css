@@ -102,22 +102,22 @@ h1.logo > a:hover {
 
 .colorado-panel > .panel-heading,
 .colorado-panel > .panel-footer {
-  color: #777;
+  color: yellow;
   font-weight: bold;
-  border-color: #D5D5D5;
-  background-color: #e5e5e5; /* Old browsers */
+  border-color: black;
+  background-color: black; /* Old browsers */
   background-repeat: repeat-x; /* Repeat the gradient */
-  background-image: -moz-linear-gradient(top, #f5f5f5 0%, #e5e5e5 100%); /* FF3.6+ */
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f5f5f5), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
-  background-image: -webkit-linear-gradient(top, #f5f5f5 0%,#e5e5e5 100%); /* Chrome 10+,Safari 5.1+ */
-  background-image: -o-linear-gradient(top, #f5f5f5 0%,#e5e5e5 100%); /* Opera 11.10+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
-  background-image: linear-gradient(top, #f5f5f5 0%,#e5e5e5 100%); /* W3C */
+  background-image: -moz-linear-gradient(top, back 0%, black 100%); /* FF3.6+ */
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,black), color-stop(100%,black)); /* Chrome,Safari4+ */
+  background-image: -webkit-linear-gradient(top, black 0%,black 100%); /* Chrome 10+,Safari 5.1+ */
+  background-image: -o-linear-gradient(top, black 0%,black 100%); /* Opera 11.10+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='black', endColorstr='black',GradientType=0 ); /* IE6-9 */
+  background-image: linear-gradient(top, black 0%,black 100%); /* W3C */
 }
 
 .colorado-panel-layout > .panel-body {
-	border-top: 1px solid #FFF;
-	background: #EFEFEF;
+	border-top: 1px solid black;
+	background: black;
 	padding: 0px;
 	overflow: hidden;
 	min-height: 300px;
@@ -128,14 +128,14 @@ h1.logo > a:hover {
 	padding-left: 20px;
 	padding-bottom: 25px;
 	padding-right: 20px;
-	border-right: 1px solid #CCC;
+	border-right: 1px solid black;
 	margin-bottom: -9999px; /* This is to make the height auto aligned */
 	padding-bottom: 9999px;
 }
 
 .colorado-panel-layout > .panel-body > .colorado-panel-layout-right {
 	padding: 15px 20px;
-	border-left: 1px solid #FFF;
+	border-left: 1px solid black;
 	margin-bottom: -9999px; /* This is to make the height auto aligned */
 	padding-bottom: 9999px; 
 }
@@ -176,10 +176,9 @@ h2.welcome {
 /* ================ footer page css ================ */
 
 .footer {
-	background: #E5E5E5;
-	border-top: 3px solid #67AD03;
+	background: black;
+	border-top: 3px solid black;
 	height: 80px;
-	
 }
 
 /* ================ breadcrumb css ================ */

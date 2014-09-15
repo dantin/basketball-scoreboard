@@ -20,29 +20,27 @@
 </head>
 <body>
 
-<div class="header">
-    <div class="container text-center">
-        <h1>2014年篮球赛记分</h1>
-    </div>
- </div>
-
 <div ng-app="gameApp" class="container main-content">
 
     <!-- clockCtrl App Controller -->
     <div ng-controller="clockCtrl" class="panel panel-default colorado-panel colorado-panel-layout">
 
         <div class="panel-heading text-center">
+            <h1 style="color: red">2014年中国工商银行驻沪机构篮球联赛</h1>
+        </div>
+
+        <div class="panel-heading text-center">
             <!--Angular Binding -->
             <h1><b>剩余比赛时间</b></h1>
-            <h1><span ng-bind="remaning"></span></h1>
+            <h1><span style="font-size: 80px;" ng-bind="remaning"></span></h1>
 
         </div>
 
         <div class="panel-body text-center">
 
             <div id="home" class="col-xs-5 colorado-panel-layout-left no-horizontal-padding text-center">
-                <h2>主队</h2>
-                <h1 style="font-size: 80px;">00</h1>
+                <h2 style="color: red">主队</h2>
+                <h1 style="font-size: 80px;color: red;">00</h1>
                 <p>
                     <a href="#" onclick="javascript:add(this, 1);" class="hover-no-text-decoration">+1</a>
                     &nbsp;&nbsp;
@@ -59,8 +57,8 @@
             </div>
 
             <div id="visiting" class="col-xs-5 colorado-panel-layout-right no-horizontal-padding text-center">
-                <h2>客队</h2>
-                <h1 style="font-size: 80px;">00</h1>
+                <h2 style="color:green;">客队</h2>
+                <h1 style="font-size: 80px;color:green;">00</h1>
                 <p>
                     <a href="#" onclick="javascript:add(this, 1);" class="hover-no-text-decoration">+1</a>
                     &nbsp;&nbsp;
@@ -75,9 +73,9 @@
         </div>
         <div class="footer">
             <div class="form-group demo2do-form-group no-bottom-border text-align-center" style="padding-top: 20px;">
-                <button type="button" class="btn btn-success btn-shadow btn-shadow-success demo2do-btn" ng-click="stop()">暂&nbsp;停</button>
-                <button type="button" class="btn btn-default btn-shadow btn-shadow-default demo2do-btn" href="#" data-target="#init-dialog" data-toggle="modal">初始化</button>
-                <button type="button" class="btn btn-info btn-shadow btn-shadow-info demo2do-btn" ng-click="countdown();">开&nbsp;始</button>
+                <a href="#" ng-click="stop()">暂&nbsp;停</a>
+                <a href="#" data-target="#init-dialog" data-toggle="modal">初始化</a>
+                <a href="#" ng-click="countdown();">开&nbsp;始</a>
             </div>
         </div>
      </div>
@@ -177,7 +175,7 @@
 
         timeModule.controller("clockCtrl",['$scope','$timeout', function($scope,$timeout){
 
-            $scope.remaning = 'N/A';
+            $scope.remaning = '00:00';
 
             var toMoment = function (timeSpan) {
                 var days = Math.floor(timeSpan / 86400000);
